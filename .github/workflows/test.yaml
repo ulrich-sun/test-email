@@ -1,0 +1,27 @@
+name: Envoyer un fichier par email
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  send_email:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Envoyer un email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.office365.com
+          server_port: 587
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "Envoi de fichier via GitHub Action"
+          body: "Voici le fichier en pièce jointe."
+          to: ulrichnoumsi@eazytraining.fr
+          from: ulrichnoumsi@eazytraining.fr
+          attachments: ./test.txt

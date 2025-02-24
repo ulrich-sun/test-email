@@ -16,12 +16,12 @@ jobs:
       - name: Envoyer un email
         uses: dawidd6/action-send-mail@v3
         with:
-          server_address: smtp.office365.com
+          server_address: smtp.gmail.com
           server_port: 587
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: "Envoi de fichier via GitHub Action"
           body: "Voici le fichier en pièce jointe."
-          to: ulrichnoumsi@eazytraining.fr
-          from: ulrichnoumsi@eazytraining.fr
+          to: ulrichnoumsi98@gmail.com
+          from: ulrichnoumsi98@gmail.com
           attachments: ./test.txt
